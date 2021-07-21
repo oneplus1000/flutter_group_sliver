@@ -23,22 +23,22 @@ class SliverGroupBuilder extends StatelessWidget {
   /// A shorthand for specifying just a solid color is available in the
   /// constructor: set the `color` argument instead of the `decoration`
   /// argument.
-  final Decoration decoration;
+  final Decoration? decoration;
 
   /// The  sliver widget.
-  final Widget child;
+  final Widget? child;
 
   @override
   Widget build(BuildContext context) {
     // get borderRadius
-    BorderRadiusGeometry borderRadius;
+    BorderRadiusGeometry? borderRadius;
     if (this.decoration != null && this.decoration is BoxDecoration) {
       borderRadius = (this.decoration as BoxDecoration).borderRadius;
     }
 
     _SliverGroup child = _SliverGroup(
-        margin: this.padding,
-        borderRadius: borderRadius,
+        margin: this.padding as EdgeInsets?,
+        borderRadius: borderRadius as BorderRadius?,
         sliver: this.child,
         decorationWidget: Container(decoration: this.decoration));
 
