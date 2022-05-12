@@ -50,6 +50,7 @@ class _SliverGroupElement extends RenderObjectElement {
 
   @override
   void forgetChild(Element child) {
+    super.forgetChild(child);
     if (child == _decoration) _decoration = null;
     if (child == _sliver) _sliver = null;
   }
@@ -70,21 +71,19 @@ class _SliverGroupElement extends RenderObjectElement {
   }
 
   @override
-  void insertChildRenderObject(RenderObject child, int? slot) {
-    final _RenderSliverGroup renderObject = this.renderObject as _RenderSliverGroup;
+  void insertRenderObjectChild(RenderObject child, int? slot) {
+    final _RenderSliverGroup renderObject =
+        this.renderObject as _RenderSliverGroup;
     if (slot == 0) renderObject.decoration = child as RenderBox?;
     if (slot == 1) renderObject.child = child as RenderSliver?;
     assert(renderObject == this.renderObject);
   }
 
   @override
-  void moveChildRenderObject(RenderObject child, slot) {
-    assert(false);
-  }
-
-  @override
-  void removeChildRenderObject(RenderObject child) {
-    final _RenderSliverGroup renderObject = this.renderObject as _RenderSliverGroup;
+  void removeRenderObjectChild(
+      covariant RenderObject child, covariant Object? slot) {
+    final _RenderSliverGroup renderObject =
+        this.renderObject as _RenderSliverGroup;
     if (renderObject.decoration == child) renderObject.decoration = null;
     if (renderObject.child == child) renderObject.child = null;
     assert(renderObject == this.renderObject);
