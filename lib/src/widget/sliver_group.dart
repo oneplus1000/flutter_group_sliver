@@ -88,4 +88,10 @@ class _SliverGroupElement extends RenderObjectElement {
     if (renderObject.child == child) renderObject.child = null;
     assert(renderObject == this.renderObject);
   }
+
+  @override
+  void moveRenderObjectChild(covariant RenderObject child,
+      covariant Object? oldSlot, covariant Object? newSlot) {
+    // TODO: implement moveRenderObjectChild
+  }
 }
